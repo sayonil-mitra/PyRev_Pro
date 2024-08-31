@@ -1,0 +1,11 @@
+curl --location 'http://localhost:5000/cac' \
+--form 'file=@"/cac_sample.csv"'
+
+curl --location 'http://localhost:5000/clv' \
+--form 'file=@"/clv_sample.csv"'
+
+curl --location 'http://localhost:5000/debt-to-equity-ratio' \
+--form 'file=@"/debt_equity_sample.csv"'
+
+curl --location 'http://localhost:5000/cost-of-ownership' \
+--form 'file=@"/cost_ownership_sample.csv"'
