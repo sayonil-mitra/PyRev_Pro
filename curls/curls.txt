@@ -9,3 +9,6 @@ curl --location 'http://localhost:5000/debt-to-equity-ratio' \
 
 curl --location 'http://localhost:5000/cost-of-ownership' \
 --form 'file=@"/cost_ownership_sample.csv"'
+
+curl --location 'http://localhost:5000/revenue-per' \
+--form 'file=@"/RevPerUser_sample.csv"'
