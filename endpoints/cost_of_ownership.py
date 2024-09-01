@@ -63,30 +63,30 @@ def process_cost_of_ownership():
         std_deviation = np.std(results, axis=0)
 
         # Plot both charts in one image
-        fig, axs = plt.subplots(2, 2, figsize=(14, 8))
+        fig, axs = plt.subplots(1, 2, figsize=(14, 8))
 
         # Histogram of total costs for the final year
-        axs[0, 0].hist(final_year_costs, bins=50, alpha=0.7, color='blue', edgecolor='black')
-        axs[0, 0].set_title('Monte Carlo Simulation: Total Cost of Ownership Distribution (Final Year)')
-        axs[0, 0].set_xlabel('Total Cost of Ownership ($)')
-        axs[0, 0].set_ylabel('Frequency')
-        axs[0, 0].grid(True)
+        axs[0].hist(final_year_costs, bins=50, alpha=0.7, color='blue', edgecolor='black')
+        axs[0].set_title('Monte Carlo Simulation: Total Cost of Ownership Distribution (Final Year)')
+        axs[0].set_xlabel('Total Cost of Ownership ($)')
+        axs[0].set_ylabel('Frequency')
+        axs[0].grid(True)
 
         # Mean and standard deviation over time
         years_range = np.arange(1, num_years + 1)
-        axs[0, 1].plot(years_range, mean_costs, label='Mean Cost', color='blue')
-        axs[0, 1].fill_between(years_range,
-                               mean_costs - std_deviation,
-                               mean_costs + std_deviation,
-                               color='blue', alpha=0.2, label='±1 Std Dev')
-        axs[0, 1].set_title('Total Cost of Ownership Over Time')
-        axs[0, 1].set_xlabel('Year')
-        axs[0, 1].set_ylabel('Total Cost of Ownership ($)')
-        axs[0, 1].legend()
-        axs[0, 1].grid(True)
+        axs[1].plot(years_range, mean_costs, label='Mean Cost', color='blue')
+        axs[1].fill_between(years_range,
+                            mean_costs - std_deviation,
+                            mean_costs + std_deviation,
+                            color='blue', alpha=0.2, label='±1 Std Dev')
+        axs[1].set_title('Total Cost of Ownership Over Time')
+        axs[1].set_xlabel('Year')
+        axs[1].set_ylabel('Total Cost of Ownership ($)')
+        axs[1].legend()
+        axs[1].grid(True)
 
         plt.tight_layout()
-        
+
         # Save plot to a BytesIO object
         img = BytesIO()
         plt.savefig(img, format='png')
